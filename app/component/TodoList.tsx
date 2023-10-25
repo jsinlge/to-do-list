@@ -3,6 +3,16 @@ export interface ITask {
   text: string
 }
 
+const Task = ({ task }) => {
+  return (
+  <tr key={task.id}>
+  <td>{task .text}</td>
+  <td>Blue</td>
+</tr>
+);
+};
+
+
 interface TodoListProps {
   tasks: ITask[]
 }
@@ -17,18 +27,14 @@ const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
       {/* head */}
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Favorite Color</th>
+          <th>Tasks</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         {tasks.map((task) => (
-          <tr key={tasks.id}>
-            <td>{tasks.text}</td>
-            <td>Blue</td>
-          </tr>
+          <Task key={task.id} task= {task} />
         ))}
-
       </tbody>
     </table>
   </div>;

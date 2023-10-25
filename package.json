@@ -10,9 +10,10 @@
     "json-server": "json-server --watch data/todos.json --port 3001"
   },
   "dependencies": {
-    "next": "13.5.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "eslint-config-next": "^13.5.6",
+    "next": "^13.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
