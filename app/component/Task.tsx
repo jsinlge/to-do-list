@@ -1,7 +1,4 @@
-export interface ITask {
-    id: string,
-    text: string
-}
+import { ITask } from "../../types/tasks";
 
 interface TaskProps {
     task: ITask

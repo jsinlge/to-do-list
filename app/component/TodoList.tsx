@@ -3,11 +3,22 @@ export interface ITask {
   text: string
 }
 
-const Task = ({ task }) => {
+const Task = ({ task, remove_task, index, edit_task }) => {
   return (
-  <tr key={task.id}>
-  <td>{task .text}</td>
-  <td>Blue</td>
+  <tr>
+  <td>{task}</td>
+  <button
+  onClick={() => remove_task(index) }
+  className='input input-bordered w-full w-full' 
+  >
+    remove
+  </button>
+  <button
+  onClick={() => edit_task(index) }
+  className='input input-bordered w-full w-full' 
+  >
+    edit task
+  </button>
 </tr>
 );
 };
@@ -21,7 +32,7 @@ const data= {id:1,
 todo: "wash table",
 }
 
-const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
+const TodoList = ({ tasks, remove_task, edit_task }) => {
     return <div className="overflow-x-auto">
     <table className="table">
       {/* head */}
@@ -32,8 +43,8 @@ const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
         </tr>
       </thead>
       <tbody>
-        {tasks.map((task) => (
-          <Task key={task.id} task= {task} />
+        {tasks.map((task, index) => (
+          <Task key={task.id} task= {task} remove_task={remove_task} index={index} edit_task={edit_task}/>
         ))}
       </tbody>
     </table>
